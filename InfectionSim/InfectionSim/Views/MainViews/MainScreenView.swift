@@ -8,23 +8,22 @@
 import SwiftUI
 
 struct MainScreenView: View {
-    @State private var groupSizeStr: String = ""
-    @State private var infectionFactorStr: String = ""
-    @State private var periodStr: String = ""
-    
-    var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                TextField("Введите размер группы", text: $groupSizeStr)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Image(systemName: "checkmark.circle")
-                Spacer()
-            }
-            
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        }
+  @State private var groupSizeStr: String = ""
+  @State private var isGroupSizeValid: Bool = false
+  
+  @State private var infectionFactorStr: String = ""
+  @State private var isInfectionFactorValid = false
+  
+  @State private var periodStr: String = ""
+  @State private var isPeriod: Bool = false
+  
+  var body: some View {
+    VStack {
+      GroupSize(groupSizeStr: $groupSizeStr, isGroupSizeValid: $isGroupSizeValid)
+      
+      Text(isGroupSizeValid ? "Group size is valid" : "Incorrect group size")
     }
+  }
 }
 
 struct MainScreenView_Previews: PreviewProvider {
