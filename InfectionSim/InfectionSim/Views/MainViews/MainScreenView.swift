@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+struct InputField: View {
+  var message: String
+  var isValid: Bool
+  
+  var body: some View {
+    Text(isValid ? "" : message)
+      .font(.caption)
+      .padding(.bottom, 30)
+      .foregroundColor(isValid ? .green : .red)
+  }
+}
+
 struct MainScreenView: View {
   @State private var groupSizeStr: String = ""
   @State private var isGroupSizeValid: Bool = false
@@ -16,12 +28,32 @@ struct MainScreenView: View {
   
   @State private var periodStr: String = ""
   @State private var isPeriod: Bool = false
-  
+   
   var body: some View {
-    VStack {
-      GroupSize(groupSizeStr: $groupSizeStr, isGroupSizeValid: $isGroupSizeValid)
-      
-      Text(isGroupSizeValid ? "Group size is valid" : "Incorrect group size")
+    NavigationStack {
+      VStack {
+        GroupSize(groupSizeStr: $groupSizeStr,
+                  isGroupSizeValid: $isGroupSizeValid)
+        InputField(message: "Введите целочисленное значение",
+                   isValid: isGroupSizeValid)
+        
+        InfectionFactor(infectionFactorStr: $infectionFactorStr,
+                        isInfectionFactorValid: $isInfectionFactorValid)
+        InputField(message: "Введите целочисленное значение",
+                   isValid: isInfectionFactorValid)
+
+        Period(periodStr: $periodStr,
+               isPeriodValid: $isPeriod)
+        InputField(message: "Некорректное значение",
+                   isValid: isPeriod)
+        
+        StartSimulationButton(isSizeValid: $isGroupSizeValid,
+                              isInfectionAmountValid: $isInfectionFactorValid,
+                              isTimeValid: $isPeriod,
+                              groupSizeStr: $groupSizeStr,
+                              infectionAmountStr: $infectionFactorStr,
+                              timeStr: $periodStr)
+      }
     }
   }
 }

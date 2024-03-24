@@ -14,6 +14,11 @@
 		D708557C2BAFD4F6005E7B0D /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708557B2BAFD4F6005E7B0D /* MainScreenView.swift */; };
 		D708557F2BAFD53D005E7B0D /* SimulationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708557E2BAFD53D005E7B0D /* SimulationView.swift */; };
 		D70855822BAFD89A005E7B0D /* GroupSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70855812BAFD89A005E7B0D /* GroupSize.swift */; };
+		D70855842BAFEB80005E7B0D /* InfectionFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70855832BAFEB80005E7B0D /* InfectionFactor.swift */; };
+		D70855862BAFEDE8005E7B0D /* Period.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70855852BAFEDE8005E7B0D /* Period.swift */; };
+		D70855882BAFEF63005E7B0D /* StartSimulationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70855872BAFEF63005E7B0D /* StartSimulationButton.swift */; };
+		D708558C2BAFFBC7005E7B0D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708558B2BAFFBC7005E7B0D /* Person.swift */; };
+		D708558E2BAFFFC6005E7B0D /* PersonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708558D2BAFFFC6005E7B0D /* PersonCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +30,11 @@
 		D708557B2BAFD4F6005E7B0D /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		D708557E2BAFD53D005E7B0D /* SimulationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationView.swift; sourceTree = "<group>"; };
 		D70855812BAFD89A005E7B0D /* GroupSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupSize.swift; sourceTree = "<group>"; };
+		D70855832BAFEB80005E7B0D /* InfectionFactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfectionFactor.swift; sourceTree = "<group>"; };
+		D70855852BAFEDE8005E7B0D /* Period.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Period.swift; sourceTree = "<group>"; };
+		D70855872BAFEF63005E7B0D /* StartSimulationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSimulationButton.swift; sourceTree = "<group>"; };
+		D708558B2BAFFBC7005E7B0D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D708558D2BAFFFC6005E7B0D /* PersonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +97,7 @@
 		D708557A2BAFD4BB005E7B0D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D708558B2BAFFBC7005E7B0D /* Person.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,9 +114,29 @@
 		D70855802BAFD54D005E7B0D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D70855812BAFD89A005E7B0D /* GroupSize.swift */,
+				D70855892BAFF8F7005E7B0D /* MainScreen */,
+				D708558A2BAFF90E005E7B0D /* Simulation */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D70855892BAFF8F7005E7B0D /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				D70855812BAFD89A005E7B0D /* GroupSize.swift */,
+				D70855832BAFEB80005E7B0D /* InfectionFactor.swift */,
+				D70855852BAFEDE8005E7B0D /* Period.swift */,
+				D70855872BAFEF63005E7B0D /* StartSimulationButton.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		D708558A2BAFF90E005E7B0D /* Simulation */ = {
+			isa = PBXGroup;
+			children = (
+				D708558D2BAFFFC6005E7B0D /* PersonCard.swift */,
+			);
+			path = Simulation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,11 +209,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D70855842BAFEB80005E7B0D /* InfectionFactor.swift in Sources */,
 				D708556E2BAFD475005E7B0D /* ContentView.swift in Sources */,
 				D708557C2BAFD4F6005E7B0D /* MainScreenView.swift in Sources */,
 				D708556C2BAFD475005E7B0D /* InfectionSimApp.swift in Sources */,
 				D708557F2BAFD53D005E7B0D /* SimulationView.swift in Sources */,
+				D70855882BAFEF63005E7B0D /* StartSimulationButton.swift in Sources */,
+				D708558E2BAFFFC6005E7B0D /* PersonCard.swift in Sources */,
+				D708558C2BAFFBC7005E7B0D /* Person.swift in Sources */,
 				D70855822BAFD89A005E7B0D /* GroupSize.swift in Sources */,
+				D70855862BAFEDE8005E7B0D /* Period.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

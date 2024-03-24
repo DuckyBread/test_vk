@@ -12,7 +12,11 @@ struct GroupSize: View {
   @Binding var isGroupSizeValid: Bool
   
   private var isValid: Bool {
-    Int(groupSizeStr) != nil
+    if let value = Int(groupSizeStr) {
+      return value > 0
+    } else {
+      return false
+    }
   }
   
   var body: some View {
@@ -20,6 +24,7 @@ struct GroupSize: View {
       Spacer()
       TextField("Введите размер группы", text: $groupSizeStr)
         .textFieldStyle(RoundedBorderTextFieldStyle())
+        .keyboardType(.numberPad)
       
       switch isValid {
       case true:
