@@ -19,6 +19,7 @@
 		D70855882BAFEF63005E7B0D /* StartSimulationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70855872BAFEF63005E7B0D /* StartSimulationButton.swift */; };
 		D708558C2BAFFBC7005E7B0D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708558B2BAFFBC7005E7B0D /* Person.swift */; };
 		D708558E2BAFFFC6005E7B0D /* PersonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D708558D2BAFFFC6005E7B0D /* PersonCard.swift */; };
+		D743865A2BB1CA5E0027131F /* ToolBarStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74386592BB1CA5E0027131F /* ToolBarStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D70855872BAFEF63005E7B0D /* StartSimulationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartSimulationButton.swift; sourceTree = "<group>"; };
 		D708558B2BAFFBC7005E7B0D /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D708558D2BAFFFC6005E7B0D /* PersonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCard.swift; sourceTree = "<group>"; };
+		D74386592BB1CA5E0027131F /* ToolBarStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D708558D2BAFFFC6005E7B0D /* PersonCard.swift */,
+				D74386592BB1CA5E0027131F /* ToolBarStatus.swift */,
 			);
 			path = Simulation;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				D708556C2BAFD475005E7B0D /* InfectionSimApp.swift in Sources */,
 				D708557F2BAFD53D005E7B0D /* SimulationView.swift in Sources */,
 				D70855882BAFEF63005E7B0D /* StartSimulationButton.swift in Sources */,
+				D743865A2BB1CA5E0027131F /* ToolBarStatus.swift in Sources */,
 				D708558E2BAFFFC6005E7B0D /* PersonCard.swift in Sources */,
 				D708558C2BAFFBC7005E7B0D /* Person.swift in Sources */,
 				D70855822BAFD89A005E7B0D /* GroupSize.swift in Sources */,

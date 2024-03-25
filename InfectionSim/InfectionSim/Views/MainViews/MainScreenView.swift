@@ -7,19 +7,9 @@
 
 import SwiftUI
 
-struct InputField: View {
-  var message: String
-  var isValid: Bool
-  
-  var body: some View {
-    Text(isValid ? "" : message)
-      .font(.caption)
-      .padding(.bottom, 30)
-      .foregroundColor(isValid ? .green : .red)
-  }
-}
-
 struct MainScreenView: View {
+  @EnvironmentObject var groupList: PersonList
+  
   @State private var groupSizeStr: String = ""
   @State private var isGroupSizeValid: Bool = false
   
@@ -33,19 +23,16 @@ struct MainScreenView: View {
     NavigationStack {
       VStack {
         GroupSize(groupSizeStr: $groupSizeStr,
-                  isGroupSizeValid: $isGroupSizeValid)
-        InputField(message: "Введите целочисленное значение",
-                   isValid: isGroupSizeValid)
+                  isGroupSizeValid: $isGroupSizeValid,
+                  errorMessage: "Введите целочисленное значение")
         
         InfectionFactor(infectionFactorStr: $infectionFactorStr,
-                        isInfectionFactorValid: $isInfectionFactorValid)
-        InputField(message: "Введите целочисленное значение",
-                   isValid: isInfectionFactorValid)
+                        isInfectionFactorValid: $isInfectionFactorValid,
+                        errorMessage: "Введите целочисленное значение")
 
         Period(periodStr: $periodStr,
-               isPeriodValid: $isPeriod)
-        InputField(message: "Некорректное значение",
-                   isValid: isPeriod)
+               isPeriodValid: $isPeriod,
+               errorMessage: "Некорректное значение")
         
         StartSimulationButton(isSizeValid: $isGroupSizeValid,
                               isInfectionAmountValid: $isInfectionFactorValid,
@@ -60,6 +47,7 @@ struct MainScreenView: View {
 
 struct MainScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        MainScreenView()
+      MainScreenView()
+        .environmentObject(PersonList())
     }
 }

@@ -8,38 +8,37 @@
 import SwiftUI
 
 struct SimulationView: View {
-  let groupSize: Int
+  @EnvironmentObject private var groupList: PersonList
   let infectionAmount: Int
   let periodTime: Double
   
-  @ObservedObject private var groupList = PersonList()
-  
-  init(groupSize: Int, infectionAmount: Int, periodTime: Double) {
-    self.groupSize = groupSize
-    self.infectionAmount = infectionAmount
-    self.periodTime = periodTime
-    
-    if !groupList.persons.isEmpty {
-      groupList.persons = []
-    }
-    
-    for _ in 0..<groupSize {
-      groupList.persons.append(Person())
-    }
+  private var infectedCounter: String {
+    String(groupList.persons.filter { $0.isInfected }.count)
+  }
+
+  private var healthyCounter: String {
+    String(groupList.persons.filter { !$0.isInfected }.count)
   }
   
   var body: some View {
-    ScrollView {
-      VStack {
-        ForEach(0..<groupList.persons.count) { index in
-          PersonCard(person: $groupList.persons[index])
-            .shadow(radius: 10)
-            .padding()
-            .onTapGesture {
-              if !groupList.persons[index].isInfected {
-                groupList.persons[index].isInfected.toggle()
+    NavigationView {
+      ScrollView {
+        VStack {
+          ForEach(0..<groupList.persons.count) { index in
+            PersonCard(person: $groupList.persons[index])
+              .shadow(radius: 10)
+              .padding()
+              .onTapGesture {
+                if !groupList.persons[index].isInfected {
+                  groupList.persons[index].isInfected.toggle()
+                }
               }
-            }
+          }
+        }
+      }.toolbar {
+        ToolbarItem(placement: .bottomBar) {
+          ToolBarStatus(healthyCounter: healthyCounter,
+                        infectedCounter: infectedCounter)
         }
       }
     }
@@ -48,6 +47,7 @@ struct SimulationView: View {
 
 struct SimulationView_Previews: PreviewProvider {
     static var previews: some View {
-      SimulationView(groupSize: 10, infectionAmount: 5, periodTime: 2.5)
+      SimulationView(infectionAmount: 5, periodTime: 2.5)
+        .environmentObject(PersonList())
     }
 }

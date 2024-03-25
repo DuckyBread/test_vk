@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
+  @StateObject var groupList = PersonList()
+  
+  var body: some View {
       MainScreenView()
+      .environmentObject(groupList)
     }
 }
 

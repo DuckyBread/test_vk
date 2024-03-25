@@ -43,6 +43,9 @@ struct PersonCard: View {
 
 struct PersonCard_Previews: PreviewProvider {
   static var previews: some View {
-    PersonCard(person: .constant(Person(isInfected: true)))
+    VStack {
+      PersonCard(person: .constant(Person(isInfected: true)))
+      Spacer()
+    }
   }
 }

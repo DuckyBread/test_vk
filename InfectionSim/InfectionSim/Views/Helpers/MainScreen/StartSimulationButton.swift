@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StartSimulationButton: View {
+  @EnvironmentObject var groupList: PersonList
+  
   @Binding var isSizeValid: Bool
   @Binding var isInfectionAmountValid: Bool
   @Binding var isTimeValid: Bool
@@ -23,26 +25,37 @@ struct StartSimulationButton: View {
   }
   
   var body: some View {
-    NavigationLink(destination: SimulationView(groupSize: Int(groupSizeStr) ?? 0,
-                                               infectionAmount: Int(infectionAmountStr) ?? 0,
-                                               periodTime: Double(timeStr) ?? 0)) {
-      Text("Запустить моделирование")
-        .padding()
-        .foregroundColor(.black)
-        .background(isReadyToStart ? .green : .gray)
-        .cornerRadius(10)
+    VStack {
+      NavigationLink(destination: SimulationView(infectionAmount: Int(infectionAmountStr) ?? 0,
+                                                 periodTime: Double(timeStr) ?? 0),
+      isActive: $status) {
+        EmptyView()
+      }
+      
+      Button("Запустить моделирование") {
+        groupList.restorePersons(newSize: Int(groupSizeStr) ?? 0)
+        status = true
+      }
+      .padding()
+      .foregroundColor(.black)
+      .background(isReadyToStart ? .green : .gray)
+      .cornerRadius(10)
+      .disabled(!isReadyToStart)
     }
-    .disabled(!isReadyToStart)
   }
 }
 
 struct StartSimulationButton_Previews: PreviewProvider {
-    static var previews: some View {
+  static var previews: some View {
+    VStack {
       StartSimulationButton(isSizeValid: .constant(true),
                             isInfectionAmountValid: .constant(true),
                             isTimeValid: .constant(true),
                             groupSizeStr: .constant("5"),
                             infectionAmountStr: .constant("4"),
                             timeStr: .constant("1.5"))
+      Spacer()
     }
+    .environmentObject(PersonList())
+  }
 }
