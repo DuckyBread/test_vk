@@ -15,12 +15,9 @@ struct Person: Identifiable {
 
 class PersonList: ObservableObject {
   @Published var persons: [Person]  = []
-  
+
   func restorePersons(newSize: Int) {
     persons.removeAll()
-    
-    for _ in 0..<newSize {
-      persons.append(Person())
-    }
+    (0..<newSize).forEach {_ in persons.append(Person()) }
   }
 }
